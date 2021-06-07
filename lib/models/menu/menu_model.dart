@@ -18,8 +18,8 @@ class MenuModel extends ChangeNotifier {
   String get errorMessage => _errorMessage;
   MenuModelStatus get status => _status;
 
-  List<MenuCard> _photos = [];
-  List<MenuCard> get photos => _photos;
+  List<MenuCard> _cards = [];
+  List<MenuCard> get photos => _cards;
 
   MenuModel();
 
@@ -32,7 +32,7 @@ class MenuModel extends ChangeNotifier {
     notifyListeners();
 
     try {
-      _photos = await MenuCard.fetchCards(http.Client());
+      _cards = await MenuCard.getAllCards();
       _status = MenuModelStatus.Ended;
     } catch (e) {
       _errorMessage = e.toString();
@@ -45,7 +45,6 @@ class MenuModel extends ChangeNotifier {
   void setter() {
     _status = MenuModelStatus.Loading;
     notifyListeners();
-    // Add code here for setter
     _status = MenuModelStatus.Ended;
     notifyListeners();
   }
@@ -53,7 +52,6 @@ class MenuModel extends ChangeNotifier {
   void update() {
     _status = MenuModelStatus.Loading;
     notifyListeners();
-    // Add code here for update
     _status = MenuModelStatus.Ended;
     notifyListeners();
   }
@@ -61,7 +59,6 @@ class MenuModel extends ChangeNotifier {
   void remove() {
     _status = MenuModelStatus.Loading;
     notifyListeners();
-    // Add code here for remove
     _status = MenuModelStatus.Ended;
     notifyListeners();
   }

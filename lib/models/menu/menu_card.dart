@@ -20,7 +20,7 @@ class MenuCard {
     );
   }
 
-  static Future<List<MenuCard>> fetchCards(http.Client client) async {
-    return null;
+  static Future<List<MenuCard>> getAllCards() async {
+    return [];
   }
 }
