@@ -19,7 +19,7 @@ class MenuModel extends ChangeNotifier {
   MenuModelStatus get status => _status;
 
   List<MenuCard> _cards = [];
-  List<MenuCard> get photos => _cards;
+  List<MenuCard> get cards => _cards;
 
   MenuModel();
 
