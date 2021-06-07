@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:univer_admin/views/home/home_view.dart';
+import 'package:univer_admin/views/menu/menu_view.dart';
 
 void main() => runApp(MyApp());
 
