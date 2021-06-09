@@ -37,7 +37,7 @@ class MenuLayout extends StatelessWidget {
                 ),
               },
               child: MenuCard(
-                title: '/${card.route}',
+                title: card.title,
                 description: card.description,
               ),
             ),
