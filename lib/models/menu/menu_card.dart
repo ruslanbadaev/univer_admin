@@ -27,7 +27,7 @@ class MenuCard {
           'id': '123',
           'title': 'Загрузить расписание',
           'description': 'Загрузить .dbf файл с расписанием на сервер',
-          'route': 'add_dbf'
+          'route': '/add_dbf'
         },
       ),
       MenuCard.fromJson(
@@ -35,7 +35,7 @@ class MenuCard {
           'id': '124',
           'title': 'Управление моделями',
           'description': 'Создание, редактирование, удаление серверных моделей',
-          'route': 'models'
+          'route': '/models'
         },
       ),
       MenuCard.fromJson(
@@ -43,7 +43,7 @@ class MenuCard {
           'id': '124',
           'title': 'Управление html страницами',
           'description': 'Создание, редактирование, удаление статичных страниц',
-          'route': 'models'
+          'route': '/models'
         },
       ),
     ];
