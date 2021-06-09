@@ -31,7 +31,7 @@ class MenuLayout extends StatelessWidget {
           for (var card in viewModel.cards)
             InkWell(
               onTap: () => {
-                router.navigateTo(context, HomeView(),
+                router.navigateTo(context, '/${card.route}',
                     transition: TransitionType.fadeIn),
               },
               child: MenuCard(title: card.title, description: card.description),
