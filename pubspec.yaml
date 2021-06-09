@@ -12,7 +12,9 @@ dependencies:
     transparent_image: ^1.0.0
     fluro: ^2.0.3
     page_transition: ^2.0.2
-    flutter_dropzone: ^2.0.1
+    #flutter_dropzone: ^2.0.1
+    drop_zone: ^1.0.2
+
 
 dev_dependencies:
     flutter_test:

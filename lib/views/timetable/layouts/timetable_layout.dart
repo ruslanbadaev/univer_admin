@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:provider/provider.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:flutter_dropzone/flutter_dropzone.dart';
+import 'package:drop_zone/drop_zone.dart';
+import 'dart:html' as html;
 
 import 'package:univer_admin/controllers/menu/menu_controller.dart';
 import 'package:univer_admin/models/menu/menu_model.dart';
@@ -31,19 +32,21 @@ class TimetableLayout extends StatelessWidget {
         children: <Widget>[
           Stack(
             children: [
-              DropzoneView(
-                operation: DragOperation.copy,
-                cursor: CursorType.grab,
-                //onCreated: (ctrl) => controller = ctrl,
-                onLoaded: () => print('Zone loaded'),
-                onError: (ev) => print('Error: $ev'),
-                onHover: () => print('Zone hovered'),
-                onDrop: (ev) => print('Drop: $ev'),
-                onLeave: () => print('Zone left'),
-              ),
-              Center(
-                child: Text('Drop files here'),
-              ),
+              DropZone(
+                  onDragEnter: () {
+                    print('drag enter');
+                  },
+                  onDragExit: () {
+                    print('drag exit');
+                  },
+                  onDrop: (List<html.File> files) {
+                    print('files dropped');
+                    print(files);
+                  },
+                  child: Container(
+                    width: 300,
+                    height: 300,
+                  ))
             ],
           )
         ],
