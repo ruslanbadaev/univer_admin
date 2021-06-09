@@ -40,10 +40,12 @@ class TimetableLayout extends StatelessWidget {
                     print('drag exit');
                   },
                   onDrop: (List<html.File> files) {
+                    print(files[0].name);
+                    print(files[0].size);
                     print('files dropped');
-                    print(files);
                   },
                   child: Container(
+                    color: Colors.red,
                     width: 300,
                     height: 300,
                   ))
