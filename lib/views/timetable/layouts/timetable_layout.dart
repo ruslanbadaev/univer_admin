@@ -53,6 +53,9 @@ class TimetableLayout extends StatelessWidget {
                         : Colors.green,
                     width: 300,
                     height: 300,
+                    child: Text(viewModel.timetable.hover
+                        ? 'Отпустите кнопку мыши'
+                        : 'Перетяните файл в эту зону'),
                   ))
             ],
           )

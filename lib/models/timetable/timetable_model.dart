@@ -14,7 +14,8 @@ class TimetableModel extends ChangeNotifier {
   }
 
   void getter() async {
-    _timetable = Timetable();
+    print('getter');
+    _timetable = Timetable(hover: false);
     notifyListeners();
   }
 
@@ -24,6 +25,7 @@ class TimetableModel extends ChangeNotifier {
 
   void setHover(bool isHover) {
     print('--- $isHover');
+    notifyListeners();
     _timetable.hover = isHover;
     notifyListeners();
   }
