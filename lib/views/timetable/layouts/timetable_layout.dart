@@ -5,17 +5,15 @@ import 'package:page_transition/page_transition.dart';
 import 'package:drop_zone/drop_zone.dart';
 import 'dart:html' as html;
 
-import 'package:univer_admin/controllers/menu/menu_controller.dart';
-import 'package:univer_admin/models/menu/menu_model.dart';
-import 'package:univer_admin/views/home/home_view.dart';
-import 'package:univer_admin/views/menu/components/menu_card.dart';
+import 'package:univer_admin/controllers/timetable/timetable_controller.dart';
+import 'package:univer_admin/models/timetable/timetable_model.dart';
 import 'package:univer_admin/views/home/home_view.dart';
 
 class TimetableLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MenuController viewController = MenuController();
-    final viewModel = Provider.of<MenuModel>(context);
+    final viewModel = Provider.of<TimetableModel>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("Загрузка файла расписания"),
@@ -34,9 +32,13 @@ class TimetableLayout extends StatelessWidget {
             children: [
               DropZone(
                   onDragEnter: () {
+                    viewModel.setHover(true);
+
                     print('drag enter');
                   },
                   onDragExit: () {
+                    viewModel.setHover(false);
+
                     print('drag exit');
                   },
                   onDrop: (List<html.File> files) {
@@ -45,7 +47,10 @@ class TimetableLayout extends StatelessWidget {
                     print('files dropped');
                   },
                   child: Container(
-                    color: Colors.red,
+                    color: viewModel.timetable.hover == null ||
+                            !viewModel.timetable.hover
+                        ? Colors.red
+                        : Colors.green,
                     width: 300,
                     height: 300,
                   ))

@@ -1,5 +1,5 @@
 class Timetable {
-  final String hover;
+  bool hover;
   Timetable({
     this.hover,
   });

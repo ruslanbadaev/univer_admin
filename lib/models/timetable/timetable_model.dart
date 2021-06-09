@@ -22,6 +22,12 @@ class TimetableModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setHover(bool isHover) {
+    print('--- $isHover');
+    _timetable.hover = isHover;
+    notifyListeners();
+  }
+
   void update() {
     notifyListeners();
   }
