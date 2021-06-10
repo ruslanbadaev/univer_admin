@@ -23,10 +23,10 @@ class TimetableController {
     viewModel.setHover(isHover);
   }
 
-  void sendFile(BuildContext context, bool isHover) {
+  void sendFile(BuildContext context, String filePath) {
     TimetableModel viewModel =
         Provider.of<TimetableModel>(context, listen: false);
-    viewModel.sendFile(isHover);
+    viewModel.sendFile(filePath);
   }
 
   void update(BuildContext context) {

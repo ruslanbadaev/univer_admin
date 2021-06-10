@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
 import 'package:univer_admin/models/timetable/timetable.dart';
+import 'package:univer_admin/middleware/constants.dart';
 
 class TimetableModel extends ChangeNotifier {
   Timetable _timetable;
@@ -28,11 +30,10 @@ class TimetableModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void sendFile(bool isHover) async {
-    var request = http.MultipartRequest(
-        'POST', Uri.parse('http://188.93.210.205:3000/timetable/dbf'));
-    request.files.add(await http.MultipartFile.fromPath(
-        '', '/Users/ruslan/Downloads/Расписание 40-45 неделя.DBF'));
+  void sendFile(String filePath) async {
+    var request =
+        http.MultipartRequest('POST', Uri.parse('$API_HOST/timetable/dbf'));
+    request.files.add(await http.MultipartFile.fromPath('', '$filePath'));
 
     http.StreamedResponse response = await request.send();
 
