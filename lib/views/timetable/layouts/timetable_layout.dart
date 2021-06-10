@@ -27,36 +27,47 @@ class TimetableLayout extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Stack(
-              children: [
-                DropZone(
-                  onDragEnter: () {
-                    viewController.setHover(context, true);
-                  },
-                  onDragExit: () {
-                    viewController.setHover(context, false);
-                  },
-                  onDrop: (List<html.File> files) {
-                    viewController.setHover(context, false);
-                    viewController.sendFile(
-                      context,
-                      files[files.length - 1].relativePath,
-                    );
-                  },
-                  child: Container(
-                    color: viewModel.timetable.hover == null ||
-                            !viewModel.timetable.hover
-                        ? Colors.red
-                        : Colors.green,
-                    width: 300,
-                    height: 300,
-                    child: Text(viewModel.timetable.hover
-                        ? 'Отпустите кнопку мыши'
-                        : 'Перетяните файл в эту зону'),
+            Container(
+              margin: EdgeInsets.all(24),
+              padding: EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.red,
+              ),
+              child: Stack(
+                children: [
+                  DropZone(
+                    onDragEnter: () {
+                      viewController.setHover(context, true);
+                    },
+                    onDragExit: () {
+                      viewController.setHover(context, false);
+                    },
+                    onDrop: (List<html.File> files) {
+                      viewController.setHover(context, false);
+                      viewController.sendFile(
+                        context,
+                        files[files.length - 1].relativePath,
+                      );
+                    },
+                    child: Container(
+                      color: viewModel.timetable.hover == null ||
+                              !viewModel.timetable.hover
+                          ? Colors.red
+                          : Colors.green,
+                      width: 300,
+                      height: 300,
+                      child: Text(
+                        viewModel.timetable.hover
+                            ? 'Отпустите кнопку мыши'
+                            : 'Перетяните файл в эту зону',
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
-                ),
-              ],
-            )
+                ],
+              ),
+            ),
           ],
         ),
       ),
