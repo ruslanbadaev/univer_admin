@@ -28,6 +28,23 @@ class TimetableModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void sendFile(bool isHover) async {
+    var request = http.MultipartRequest(
+        'POST', Uri.parse('http://188.93.210.205:3000/timetable/dbf'));
+    request.files.add(await http.MultipartFile.fromPath(
+        '', '/Users/ruslan/Downloads/Расписание 40-45 неделя.DBF'));
+
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      print(await response.stream.bytesToString());
+    } else {
+      print(response.reasonPhrase);
+    }
+
+    notifyListeners();
+  }
+
   void update() {
     notifyListeners();
   }
