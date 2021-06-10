@@ -12,8 +12,9 @@ import 'package:univer_admin/views/home/home_view.dart';
 class TimetableLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    MenuController viewController = MenuController();
+    TimetableController viewController = TimetableController();
     final viewModel = Provider.of<TimetableModel>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Загрузка файла расписания"),
@@ -32,16 +33,17 @@ class TimetableLayout extends StatelessWidget {
             children: [
               DropZone(
                   onDragEnter: () {
-                    viewModel.setHover(true);
+                    viewController.setHover(context, true);
 
                     print('drag enter');
                   },
                   onDragExit: () {
-                    viewModel.setHover(false);
+                    viewController.setHover(context, false);
 
                     print('drag exit');
                   },
                   onDrop: (List<html.File> files) {
+                    viewController.setHover(context, false);
                     print(files[0].name);
                     print(files[0].size);
                     print('files dropped');

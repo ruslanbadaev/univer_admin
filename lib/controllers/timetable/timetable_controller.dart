@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:univer_admin/models/timetable/timetable_model.dart';
 
-class MenuController {
-  MenuController();
+class TimetableController {
+  TimetableController();
 
   void getter(BuildContext context) {
     TimetableModel viewModel =
