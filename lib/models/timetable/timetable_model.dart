@@ -31,7 +31,7 @@ class TimetableModel extends ChangeNotifier {
   }
 
   void sendFile(String filePath) async {
-    var request =
+/*     var request =
         http.MultipartRequest('POST', Uri.parse('$API_HOST/timetable/dbf'));
     request.files.add(await http.MultipartFile.fromPath('', '$filePath'));
 
@@ -41,7 +41,7 @@ class TimetableModel extends ChangeNotifier {
       print(await response.stream.bytesToString());
     } else {
       print(response.reasonPhrase);
-    }
+    } */
 
     notifyListeners();
   }

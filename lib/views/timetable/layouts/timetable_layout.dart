@@ -44,11 +44,6 @@ class TimetableLayout extends StatelessWidget {
                   },
                   onDrop: (List<html.File> files) {
                     viewController.setHover(context, false);
-
-                    print(files[files.length - 1].relativePath);
-                    print(files[files.length - 1].name);
-                    print(files[files.length - 1].type);
-                    print(files[files.length - 1].size);
                     viewController.sendFile(
                       context,
                       files[files.length - 1].relativePath,
