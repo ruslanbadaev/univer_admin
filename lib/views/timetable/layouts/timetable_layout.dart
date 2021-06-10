@@ -19,28 +19,22 @@ class TimetableLayout extends StatelessWidget {
       appBar: AppBar(
         title: Text("Загрузка файла расписания"),
       ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            viewController.getter(context);
-          },
-          child: Icon(
-            Icons.file_download_rounded,
-          )),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Stack(
-            children: [
-              DropZone(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Stack(
+              children: [
+                DropZone(
                   onDragEnter: () {
                     viewController.setHover(context, true);
-
-                    print('drag enter');
                   },
                   onDragExit: () {
                     viewController.setHover(context, false);
-
-                    print('drag exit');
                   },
                   onDrop: (List<html.File> files) {
                     viewController.setHover(context, false);
@@ -48,7 +42,6 @@ class TimetableLayout extends StatelessWidget {
                       context,
                       files[files.length - 1].relativePath,
                     );
-                    print('files dropped');
                   },
                   child: Container(
                     color: viewModel.timetable.hover == null ||
@@ -60,10 +53,12 @@ class TimetableLayout extends StatelessWidget {
                     child: Text(viewModel.timetable.hover
                         ? 'Отпустите кнопку мыши'
                         : 'Перетяните файл в эту зону'),
-                  ))
-            ],
-          )
-        ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
